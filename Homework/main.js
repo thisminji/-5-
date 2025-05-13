@@ -1,19 +1,42 @@
 //main.js
 const customTag = {
-    tagName: //value: 태그 이름
-    textContent: //value: 태그에 들어갈 텍스트
+    tagName: "div",//value: 태그 이름
+    textContent: "안녕하세용!", //value: 태그에 들어갈 텍스트
     styles: {
-        color: //글자의 색
-        fontSize: //글자 크기
+        color: "blue", //글자의 색
+        fontSize: "18px"//글자 크기
     },
     id: "", //태그의 id
     class: [], //태그의 클래스들
-    changeTagName: , //태그의 tagName을 바꾸는 함수
-    changeTextContent: , //태그의 textContent를 바꾸는 함수
-    changeStyles: , //태그의 스타일을 바꾸는 함수
-    setId: , //태그의 아이디를 바꾸는 함수
-    addClassName: , //태그의 클래스 이름를 추가하는 함수
-    removeClassName: , //태그의 특정 클래스 이름를 제거하는 함수
+
+    changeTagName(newTagName){
+        this.tagName=newTagName;
+    } , //태그의 tagName을 바꾸는 함수
+    changeTextContent(newText){
+        this.textContent=newText;
+    } , //태그의 textContent를 바꾸는 함수
+    changeStyles(styleKey, styleValue) {
+        this.styles[styleKey] = styleValue;
+    
+        // 실제 DOM 요소에 적용
+        if (this.id) {
+            const element = document.getElementById(this.id);
+            if (element) {
+                element.style[styleKey] = styleValue;
+            }
+        }
+    } , //태그의 스타일을 바꾸는 함수
+    setId(newId){
+        this.id=newId;
+    } , //태그의 아이디를 바꾸는 함수
+    addClassName(className){
+        if(!this.class.includes(className)){
+            this.class.push(className);
+        }
+    } , //태그의 클래스 이름를 추가하는 함수
+    removeClassName(className){
+        this.class=this.class.filter(c=> c!== className);
+    } , //태그의 특정 클래스 이름를 제거하는 함수
 
     // 여기 아래 부분은 수정하지 마시오.
     toHTML() {
