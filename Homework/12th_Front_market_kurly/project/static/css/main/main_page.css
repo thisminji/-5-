@@ -1,0 +1,339 @@
+/* ===========================
+   페이지 전체 컨테이너 설정
+   =========================== */
+   .page-container {
+    display: flex;
+    flex-direction: column;
+    width: 1050px;
+    margin: 0 auto 100px;
+    align-items: flex-start;
+  }
+  
+  /* ===========================
+     상단 탭 메뉴 영역
+     =========================== */
+  .tab-wrapper {
+    border: 1px solid #E2E2E2;
+    margin-top: 50px;
+    display: flex;
+    padding: 30px 40px;
+    gap: 16px 80px;
+    flex-wrap: wrap;
+    background-color: #fff;
+  }
+  
+  .tab-button {
+    width: 180px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -1px;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .tab-button.selected {
+    color: #5E0080;
+    font-weight: 700;
+  }
+  
+  .tab-button:hover {
+    color: #5E0080;
+    text-decoration: underline;
+  }
+  
+  /* ===========================
+     전체 콘텐츠 영역 (필터 + 상품)
+     =========================== */
+  .itemList {
+    display: flex;
+    padding-top: 50px;
+    gap: 47px;
+    align-self: stretch;
+  }
+  
+  /* ===========================
+     필터 사이드바 영역
+     =========================== */
+  .sidebar-filter {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    align-items: flex-start;
+  }
+  
+  /* 필터 상단 헤더 (제목 + 초기화) */
+  .filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E2E2E2;
+    width: 100%;
+  }
+  
+  .filter-text,
+  .category-text {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #333;
+  }
+  
+  /* 초기화 버튼 */
+  .reset-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .reset-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.5;
+  }
+  
+  .reset-text {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #DDD;
+  }
+  
+  /* 카테고리 필터 목록 */
+  .filter-options {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .filter-options-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 52px;
+    width: 100%;
+  }
+  
+  /* 체크박스 라벨 */
+  .filter-options label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-bottom: 16px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    color: #333;
+    line-height: 17px;
+  }
+  
+  /* 필터 펼치기 아이콘 */
+  .category-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+  
+  /* 필터 항목 옆 숫자 */
+  .count {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 12px;
+    color: #DDD;
+    line-height: 16px;
+  }
+  
+  /* ===========================
+     상품 리스트 섹션
+     =========================== */
+  .product-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* 정렬 옵션 바 */
+  .sort-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 20px;
+  }
+  
+  .num {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #333;
+  }
+  
+  .sort-methods {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .sort-item {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #999;
+    padding: 0 8px;
+  }
+  
+  .sort-item.selected {
+    color: #333;
+  }
+  
+  .divider {
+    width: 1px;
+    height: 10px;
+    background-color: #E2E2E2;
+    align-self: center;
+  }
+  
+  /* 선택된 필터 정보 영역 */
+  .selected-category-info {
+    display: flex;
+    padding: 20px 16px 18px;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid #E2E2E2;
+    color: #5E0080;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -1px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* ===========================
+     상품 카드 리스트
+     =========================== */
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 18px;
+    padding-top: 32px;
+  }
+  
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    width: 249px;
+    gap: 6px;
+  }
+  
+  .product-image {
+    width: 249px;
+    height: 320px;
+  }
+  
+  /* 장바구니 버튼 */
+  .cart-button {
+    display: flex;
+    width: 249px;
+    height: 36px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid #E2E2E2;
+    border-radius: 4px;
+  }
+  
+  .cart-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .cart-text {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #333;
+  }
+  
+  /* ===========================
+     상품 정보 텍스트 영역
+     =========================== */
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    width: 249px;
+    padding-top: 8px;
+    padding-right: 10px;
+  }
+  
+  .delivery-label {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    color: #999;
+    line-height: 20px;
+    letter-spacing: -1px;
+  }
+  
+  .item-title {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 16px;
+    color: #333;
+    line-height: 24px;
+  }
+  
+  .item-desc {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 12px;
+    color: #999;
+    line-height: 16px;
+  }
+  
+  /* ===========================
+     가격 영역 (정가 + 할인)
+     =========================== */
+  .price-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .price-original {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 16px;
+    color: #999;
+    text-decoration: line-through;
+  }
+  
+  .price-discount-wrapper {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .price-rate,
+  .price-final {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+  
+  .price-rate {
+    color: #FA622F;
+  }
+  
+  .price-final {
+    color: #333;
+  }
+  

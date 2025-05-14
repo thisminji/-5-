@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main/main_page.css' %}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@latest/dist/web/static/pretendard.css" />
+</head>
+
+<div class="page-container">
+
+  <!-- 탭 메뉴 -->
+  <div class="tab-wrapper">
+    <button class="tab-button selected">인기신상랭킹</button>
+    <button class="tab-button">입점특가</button>
+    <button class="tab-button">간편한끼</button>
+    <button class="tab-button">요즘간식</button>
+    <button class="tab-button">주방·리빙</button>
+    <button class="tab-button">뷰티</button>
+    <button class="tab-button">패션·잡화</button>
+  </div>
+
+  <div class="itemList">
+
+    <!-- 필터 사이드바 -->
+    <aside class="sidebar-filter">
+      <div class="filter-header">
+        <span class="filter-text">필터</span>
+        <button class="reset-box">
+          <img src="{% static 'assets/icons/reset.svg' %}" alt="초기화" class="reset-icon" />
+          <span class="reset-text">초기화</span>
+        </button>
+      </div>
+
+      <div class="filter-options">
+        <div class="filter-options-title">
+          <span class="category-text">카테고리</span>
+          <button class="category-box">
+            <img src="{% static 'assets/icons/up.svg' %}" alt="카테고리 열기" class="category-icon" />
+          </button>
+        </div>
+
+        <!-- 필터 체크박스 -->
+        <label><input type="checkbox" class="filter-check" data-category="스킨케어·메이크업" data-count="68" /> 스킨케어·메이크업 <span class="count">68</span></label>
+        <label><input type="checkbox" class="filter-check" data-category="럭셔리뷰티" data-count="24" /> 럭셔리뷰티 <span class="count">24</span></label>
+        <label><input type="checkbox" class="filter-check" data-category="간식·과자·떡" data-count="28" /> 간식·과자·떡 <span class="count">28</span></label>
+      </div>
+    </aside>
+
+    <section class="product-area">
+
+      <!-- 정렬 헤더 -->
+      <div class="sort-header">
+        <h3 class="num">총 508건</h3>
+        <div class="sort-methods">
+          <a href="#"><h3 class="sort-item selected">추천순</h3></a>
+          <span class="divider"></span>
+          <a href="#"><h3 class="sort-item">신상품순</h3></a>
+          <span class="divider"></span>
+          <a href="#"><h3 class="sort-item">판매량순</h3></a>
+          <span class="divider"></span>
+          <a href="#"><h3 class="sort-item">혜택순</h3></a>
+          <span class="divider"></span>
+          <a href="#"><h3 class="sort-item">낮은 가격순</h3></a>
+          <span class="divider"></span>
+          <a href="#"><h3 class="sort-item">높은 가격순</h3></a>
+        </div>
+      </div>
+
+      <!-- 선택된 카테고리 표시 -->
+      <div class="selected-category-info hidden">
+        <span class="selected-category-name"></span>
+      </div>
+
+      <!-- 상품 리스트 -->
+      <div class="product-list">
+        {% for product in products %}
+        <div class="product-card">
+          <div class="product-image">
+            <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width: 100%; height: 100%; object-fit: cover;" />
+          </div>
+          <button class="cart-button">
+            <img src="{% static 'assets/icons/cart.svg' %}" alt="장바구니" class="cart-icon" />
+            <span class="cart-text">담기</span>
+          </button>
+          <div class="product-info">
+            <p class="delivery-label">샛별배송</p>
+            <p class="item-title">{{ product }}</p>
+            <p class="item-desc">{{ product.description }}</p>
+            <p class="price-box">
+              {% if product.origin_price %}
+              <span class="price-original">{{ product.origin_price }}원</span>
+              {% endif %}
+              {% if product.discount_rate or product.discount_price %}
+              <span class="price-discount-wrapper">
+                {% if product.discount_rate %}<span class="price-rate">{{ product.discount_rate }}%</span>{% endif %}
+                {% if product.discount_price %}<span class="price-final">{{ product.discount_price }}원</span>{% endif %}
+              </span>
+              {% endif %}
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+    </section>
+  </div>
+</div>
+
+<script src="{% static 'js/main/main_page.js' %}"></script>
+{% endblock %}
