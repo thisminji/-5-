@@ -1,33 +1,59 @@
-{% extends 'base.html' %} {% block content %} {% load static %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'css/main/product_detail_page.css'%}"
-/>
+{% extends 'base.html' %}
+{% load static humanize %}
+{% block content %}
 
-<!-- 코드 작성시, 아래 부분(endblock 이전)은 전체 삭제하고 작성하세요 -->
+<link rel="stylesheet" href="{% static 'css/main/product_detail_page.css' %}" />
 
-<!----------------tip!---------------->
-<!-- 상품 데이터베이스는 프로젝트에 넣어뒀어요 -->
-<!-- 아래와 같은 형식으로 사용하세요 -->
+<div class="product-detail-container">
+  <!-- 왼쪽: 상품 이미지 -->
+  <div class="product-image-box">
+    <img src="{{ product.image_url }}" alt="{{ product.name }}" class="product-image" />
+  </div>
 
-<!-- 데이터 사용 예시 -->
-<img src="{{product.image_url}}" style="width: 100px" />
-<p>{{product.name}}</p>
-<p>{{product.discount_rate}}%</p>
-<p>{{product.discount_price}} 원</p>
-<p>{{product.notice}}</p>
-<!-- 데이터 사용 예시 -->
+  <!-- 오른쪽: 상품 정보 -->
+  <div class="product-info-box">
+    <!-- 상단 정보 묶음 -->
+    <div class="product-main-content">
+      <p class="delivery-label">샛별배송</p>
 
-<script src="{% static 'js/main/product_detail_page.js'%}"></script>
+      <h2 class="product-name">{{ product.name }}</h2>
 
+      <div class="price-section">
+        <p class="discount-rate">{{ product.discount_rate }}%</p>
+        <p class="discount-price" id="unit-price" data-unit-price="{{ product.discount_price }}">
+          {{ product.discount_price|intcomma }}원
+        </p>
+      </div>
 
+      <div class="notice-section">
+        <p class="notice-title">안내사항</p>
+        <p class="notice-content">{{ product.notice }}</p>
+      </div>
 
+      <div class="amount-section">
+        <p class="amount-title">상품 선택</p>
+        <div class="amount-select">
+          <p class="amount-label">[{{ product.name }}]</p>
+          <div class="counter-box">
+            <button class="minus-btn">-</button>
+            <span class="quantity" id="quantity">1</span>
+            <button class="plus-btn">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- ✅ 총 금액 + 버튼 묶음 -->
+    <div class="total-box">
+      <div class="total-section">
+        <span class="total-label">총 상품금액:</span>
+        <span class="total-price"><span id="total-price">{{ product.discount_price|intcomma }}</span>원</span>
+      </div>
+      <button class="purchase-btn">로그인</button>
+    </div>
+  </div>
+</div>
 
-
-
-
-
+<script src="{% static 'js/main/product_detail_page.js' %}"></script>
 
 {% endblock %}
