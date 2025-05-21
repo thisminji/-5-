@@ -73,36 +73,43 @@
         <span class="selected-category-name"></span>
       </div>
 
-      <!-- 상품 리스트 -->
-      <div class="product-list">
-        {% for product in products %}
-        <div class="product-card">
-          <div class="product-image">
-            <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width: 100%; height: 100%; object-fit: cover;" />
-          </div>
-          <button class="cart-button">
-            <img src="{% static 'assets/icons/cart.svg' %}" alt="장바구니" class="cart-icon" />
-            <span class="cart-text">담기</span>
-          </button>
-          <div class="product-info">
-            <p class="delivery-label">샛별배송</p>
-            <p class="item-title">{{ product }}</p>
-            <p class="item-desc">{{ product.description }}</p>
-            <p class="price-box">
-              {% if product.origin_price %}
-              <span class="price-original">{{ product.origin_price }}원</span>
-              {% endif %}
-              {% if product.discount_rate or product.discount_price %}
-              <span class="price-discount-wrapper">
-                {% if product.discount_rate %}<span class="price-rate">{{ product.discount_rate }}%</span>{% endif %}
-                {% if product.discount_price %}<span class="price-final">{{ product.discount_price }}원</span>{% endif %}
-              </span>
-              {% endif %}
-            </p>
-          </div>
-        </div>
-        {% endfor %}a
-      </div>
+    <!-- 상품 리스트 -->
+<div class="product-list">
+  {% for product in products %}
+
+  <!-- ✅ 여기를 div 대신 a로 감쌈 -->
+  <a href="{% url 'main:product_detail' product.id %}" class="product-card">
+
+    <div class="product-image">
+      <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width: 100%; height: 100%; object-fit: cover;" />
+    </div>
+
+    <button class="cart-button">
+      <img src="{% static 'assets/icons/cart.svg' %}" alt="장바구니" class="cart-icon" />
+      <span class="cart-text">담기</span>
+    </button>
+
+    <div class="product-info">
+      <p class="delivery-label">샛별배송</p>
+      <p class="item-title">{{ product }}</p>
+      <p class="item-desc">{{ product.description }}</p>
+      <p class="price-box">
+        {% if product.origin_price %}
+        <span class="price-original">{{ product.origin_price }}원</span>
+        {% endif %}
+        {% if product.discount_rate or product.discount_price %}
+        <span class="price-discount-wrapper">
+          {% if product.discount_rate %}<span class="price-rate">{{ product.discount_rate }}%</span>{% endif %}
+          {% if product.discount_price %}<span class="price-final">{{ product.discount_price }}원</span>{% endif %}
+        </span>
+        {% endif %}
+      </p>
+    </div>
+
+  </a>
+  {% endfor %}
+</div>
+
 
     </section>
   </div>
