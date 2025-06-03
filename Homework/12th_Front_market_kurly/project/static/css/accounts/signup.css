@@ -1,1 +1,193 @@
-/* signup page - CSS */
+/* ------------------------------------ */
+/* ✅ 전체 컨테이너 및 폼 구조 설정 */
+/* ------------------------------------ */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  gap: 32px;
+  align-self: stretch;
+}
+
+.signup-form {
+  width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-box {
+  width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+}
+
+/* ------------------------------------ */
+/* ✅ 제목 & 구분선 */
+/* ------------------------------------ */
+.form-title {
+  color: #000;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.divider-title {
+  width: 640px;
+  height: 1px;
+  background-color: #000;
+}
+
+/* ------------------------------------ */
+/* ✅ 전체 input 리스트 영역 */
+/* ------------------------------------ */
+.input-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ------------------------------------ */
+/* ✅ 입력 줄(아이디 / 비밀번호 확인) 기본 구조 */
+/* ------------------------------------ */
+.signup-input {
+  display: flex;
+  width: 100%;
+  padding: 10px 20px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.signup-input label {
+  width: 150px;
+  height: 46px;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  line-height: 20px;
+  letter-spacing: -1px;
+
+  display: flex;
+  align-items: center;
+}
+
+.input-wrap {
+  width: 438px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrap input {
+  width: 100%;
+  height: 46px;
+  padding: 0 11px;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+
+.input-wrap input::placeholder {
+  color: #999;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -1px;
+}
+
+/* ------------------------------------ */
+/* ✅ 비밀번호 입력줄 (안내 포함) */
+/* ------------------------------------ */
+.signup-input.password {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.password-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 438px;
+}
+
+.password-input-wrap input {
+  width: 438px;
+  height: 46px;
+  padding: 0 11px;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+
+.password-input-wrap input::placeholder {
+  color: #999;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -1px;
+}
+
+.password-guide {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.password-guide ul {
+  padding-left: 20px;
+  margin: 0;
+  list-style-type: disc;
+}
+
+.password-guide li {
+  margin-bottom: 4px;
+}
+
+/* ------------------------------------ */
+/* ✅ 가입 버튼 영역 */
+/* ------------------------------------ */
+.form-submit {
+  display: flex;
+  width: 240px;
+  padding: 16px 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background: #E2E2E2;
+}
+
+.signup-button {
+  color: #999;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  background: none;
+  border: none;
+}
+
+.signup-button:hover {
+  cursor: pointer;
+}
