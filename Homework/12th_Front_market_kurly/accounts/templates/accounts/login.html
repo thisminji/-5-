@@ -1,6 +1,53 @@
-<!-- 임시 로그인 페이지 -->
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- CSS 연결 -->
+<link rel="stylesheet" href="{% static 'css/accounts/login.css' %}">
+
 <div class="container">
-  <h2>로그인</h2>
+  <form class="login-form" method="POST" action="{% url 'accounts:login' %}">
+    {% csrf_token %}
+
+    <div class="form-box">
+      <h1 class="form-title">로그인</h1>
+
+      <!-- 아이디 입력 -->
+      <div class="login-input">
+        <input type="text" id="username" name="username" placeholder="아이디를 입력해주세요">
+      </div>
+
+      <!-- 12px spacer -->
+      <div class="input-spacer-12"></div>
+
+      <!-- 비밀번호 입력 -->
+      <div class="login-input">
+        <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+      </div>
+
+      <!-- 32px spacer -->
+      <div class="input-spacer-32"></div>
+
+      <!-- 아이디/비밀번호 찾기 -->
+      <div class="find-links">
+        <a href="#">아이디 찾기</a>
+        <span class="divider">|</span>
+        <a href="#">비밀번호 찾기</a>
+      </div>
+    </div>
+
+    <!-- 버튼 영역 -->
+    <div class="form-submit">
+      <button class="login-button" type="submit" disabled>로그인</button>
+    </div>
+
+    <div class="form-submit">
+      <a href="{% url 'accounts:signup' %}" class="signup-link">회원가입</a>
+    </div>
+  </form>
 </div>
+
+<!-- JS 연결 -->
+<script src="{% static 'js/accounts/login.js' %}"></script>
+
 {% endblock %}

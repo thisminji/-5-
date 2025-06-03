@@ -1,1 +1,132 @@
-/* login page - CSS */
+/* 로그인 페이지 - CSS */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0 100px 0;
+  font-family: Pretendard;
+}
+
+.login-form {
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 제목 영역 */
+.form-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.form-title {
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -1px;
+  color: #000;
+  margin-bottom: 32px;
+}
+
+/* spacer */
+.input-spacer-12 {
+  height: 12px;
+}
+.input-spacer-32 {
+  height: 32px;
+}
+
+/* 입력창 */
+.login-input input {
+  width: 340px;
+  height: 46px;
+  padding: 11px;
+  border-radius: 4px;
+  border: 1px solid #CCC;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000;
+  box-sizing: border-box;
+}
+
+.login-input input::placeholder {
+  color: #999;
+}
+
+/* 찾기 링크 */
+.find-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #666;
+  width: 100%;
+}
+
+.find-links a {
+  color: #666;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.divider {
+  color: #999;
+}
+
+/* 버튼 영역 */
+.form-submit {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* 로그인 버튼 (비활성) */
+.login-button {
+  width: 100%;
+  padding: 16px 0;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  background: var(--stroke-stroke-2, #E2E2E2);
+  color: #999;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  border: none;
+  cursor: default;
+}
+
+/* 로그인 버튼 (활성화 상태) */
+.login-button.active {
+  background: var(--point-main, #5E0080);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 🔥 hover 효과는 완전히 제거됨 */
+
+/* 회원가입 버튼 */
+.signup-link {
+  width: 100%;
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid var(--point-main, #5E0080);
+  color: var(--point-main, #5E0080);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration: none;
+}
