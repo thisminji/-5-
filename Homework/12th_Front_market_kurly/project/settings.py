@@ -122,10 +122,15 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'project', 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# 로그인/로그아웃 성공 후 이동 경로 설정
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'project', 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')

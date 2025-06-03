@@ -1,5 +1,8 @@
-/* 로그인 페이지 - CSS */
+/* ===================================
+   로그인 페이지 스타일 - login.css
+   =================================== */
 
+/* ✅ 전체 레이아웃 컨테이너 */
 .container {
   display: flex;
   flex-direction: column;
@@ -9,6 +12,7 @@
   font-family: Pretendard;
 }
 
+/* ✅ 로그인 폼 레이아웃 */
 .login-form {
   width: 340px;
   display: flex;
@@ -16,7 +20,7 @@
   align-items: center;
 }
 
-/* 제목 영역 */
+/* ✅ 제목 영역 (로그인 텍스트 포함) */
 .form-box {
   width: 100%;
   display: flex;
@@ -36,15 +40,7 @@
   margin-bottom: 32px;
 }
 
-/* spacer */
-.input-spacer-12 {
-  height: 12px;
-}
-.input-spacer-32 {
-  height: 32px;
-}
-
-/* 입력창 */
+/* ✅ 입력 필드 공통 스타일 */
 .login-input input {
   width: 340px;
   height: 46px;
@@ -62,7 +58,16 @@
   color: #999;
 }
 
-/* 찾기 링크 */
+/* ✅ 입력 필드 간 간격 (Spacer) */
+.input-spacer-12 {
+  height: 12px;
+}
+
+.input-spacer-32 {
+  height: 32px;
+}
+
+/* ✅ 아이디/비밀번호 찾기 링크 */
 .find-links {
   display: flex;
   justify-content: flex-end;
@@ -83,14 +88,14 @@
   color: #999;
 }
 
-/* 버튼 영역 */
+/* ✅ 버튼 영역 레이아웃 */
 .form-submit {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-/* 로그인 버튼 (비활성) */
+/* ✅ 로그인 버튼 (기본: 비활성 상태) */
 .login-button {
   width: 100%;
   padding: 16px 0;
@@ -106,16 +111,15 @@
   cursor: default;
 }
 
-/* 로그인 버튼 (활성화 상태) */
+/* ✅ 로그인 버튼 (활성화 시) */
 .login-button.active {
   background: var(--point-main, #5E0080);
   color: #fff;
   cursor: pointer;
 }
 
-/* 🔥 hover 효과는 완전히 제거됨 */
 
-/* 회원가입 버튼 */
+/* ✅ 회원가입 버튼 (하단 링크) */
 .signup-link {
   width: 100%;
   padding: 16px 0;
