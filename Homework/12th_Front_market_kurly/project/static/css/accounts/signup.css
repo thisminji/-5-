@@ -82,11 +82,14 @@
   align-items: center;
 }
 
+/* ✅ 수정: input-wrap 구조 세로 배치로 */
 .input-wrap {
   width: 438px;
-  height: 46px;
   display: flex;
-  align-items: center;
+  flex-direction: column;  /* ✅ input과 메시지를 위아래로 배치 */
+  align-items: flex-start;
+  gap: 8px;
+  height: auto;
 }
 
 .input-wrap input {
@@ -190,4 +193,19 @@
 
 .signup-button:hover {
   cursor: pointer;
+}
+
+/* ------------------------------------ */
+/* ✅ 에러 메시지 (비밀번호 불일치) */
+/* ------------------------------------ */
+.password-error-message {
+  color: var(--point-red, #FA622F);
+  text-align: left;
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  width: 100%;
+  margin: 0;
 }

@@ -1,6 +1,5 @@
-/* signup page - JS */
-
 console.log("연결성공");
+
 document.addEventListener('DOMContentLoaded', function () {
   const usernameInput = document.getElementById('username');
   const passwordInput = document.getElementById('password');
@@ -8,8 +7,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const signupButton = document.querySelector('.form-submit');
   const signupButtonText = document.querySelector('.signup-button');
 
+  // ✅ 비밀번호 확인 에러 메시지 생성
+  const passwordConfirmWrap = passwordConfirmInput.parentElement;
+  const passwordMismatchError = document.createElement('p');
+  passwordMismatchError.className = 'password-error-message';
+  passwordMismatchError.style.display = 'none';
+  passwordMismatchError.textContent = '비밀번호가 일치하지 않습니다!';
+  passwordConfirmWrap.appendChild(passwordMismatchError);
+
   function isValidPassword(password) {
-    // 비밀번호: 8자 이상 + 영문대소문자 + 숫자 + 특수문자(@!?\-_)
     const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!?_\-])[A-Za-z\d@!?_\-]{8,}$/;
     return regex.test(password);
   }
@@ -26,6 +32,14 @@ document.addEventListener('DOMContentLoaded', function () {
     );
   }
 
+  function updatePasswordErrors() {
+    if (passwordConfirmInput.value && !isPasswordConfirmed()) {
+      passwordMismatchError.style.display = 'block';
+    } else {
+      passwordMismatchError.style.display = 'none';
+    }
+  }
+
   function updateButtonState() {
     if (isFormValid()) {
       signupButton.style.background = '#5E0080';
@@ -38,8 +52,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // 입력값 변화 감지하여 실시간 검사
+  // ✅ 이벤트 등록
   usernameInput.addEventListener('input', updateButtonState);
-  passwordInput.addEventListener('input', updateButtonState);
-  passwordConfirmInput.addEventListener('input', updateButtonState);
+  passwordInput.addEventListener('input', () => {
+    updatePasswordErrors();
+    updateButtonState();
+  });
+  passwordConfirmInput.addEventListener('input', () => {
+    updatePasswordErrors();
+    updateButtonState();
+  });
 });
